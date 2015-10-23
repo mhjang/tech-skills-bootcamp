@@ -15,3 +15,11 @@ The goal of these snippets is to count the number of usernames in the participan
     grep " -" participants.md -c
     
 ``grep -c`` counts the lines of the result, and it accepts a list of files to search through.
+
+### Another way to break the problem into steps using AWK 
+
+    cat participants.md | awk '/-/{print $0}' | wc
+1. ``cat`` spits the data from ``participants.md`` onto ``stdout``
+2. The first argument in awk before { } is a condition: for those lines that contains '-'. Then { } contains an action: print the lines. 
+3. counts the line in the result. 
+
